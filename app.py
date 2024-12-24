@@ -1,8 +1,12 @@
 from flask import Flask, request, jsonify
 import whisperx
 import torch
+import setproctitle
 import gc
 import os
+
+# Set process title at the very beginning of your app
+setproctitle.setproctitle("WhisperX-API")
 
 app = Flask(__name__)
 

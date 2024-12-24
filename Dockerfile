@@ -32,6 +32,7 @@ RUN pip3 install torch==2.0.0 torchaudio==2.0.0 --index-url https://download.pyt
 RUN pip3 install git+https://github.com/m-bain/whisperx.git
 
 RUN pip3 install flask
+RUN pip3 install setproctitle
 
 # Expose the port
 EXPOSE 5000

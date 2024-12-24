@@ -34,6 +34,23 @@ docker build -t whisperx-api .
 docker run --gpus all --shm-size=8gb --runtime=nvidia --network=host --volume="/sizzle_storage:/sizzle_storage:rw" --volume="$(pwd):/app" -p 5000:5000 --name whisperx-api whisperx-api
 ```
 
+4. **Wait
+After running the container, it takes about 5 minutes while for Whisper model to download and load. Wait till these messages appears in screen:
+
+```bash
+ * Serving Flask app 'app'
+ * Debug mode: off
+INFO:werkzeug:WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.193:5000
+INFO:werkzeug:Press CTRL+C to quit
+```
+
+Once the above message appears, you are good to start making requests for API calls.
+
+You will also be able to see a process called `WhisperX-API` loaded in GPU memory once you run the command `nvidia-smi`.
+
 ## API Endpoints
 POST `/transcribe`
 ```json
