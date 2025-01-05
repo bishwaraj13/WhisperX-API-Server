@@ -2,6 +2,9 @@
 
 A lightweight Flask API server that wraps WhisperX for efficient audio transcription using GPU acceleration. This service maintains a loaded model in memory for faster processing and provides a simple HTTP interface for transcription requests.
 
+## Context
+WhisperX has very specific dependencies which run on older python and torch versions, and is usually incompatible with some of the newer applications, so I separated out WhisperX, and made it a simple Flask API server. That way my code in other applications can just send API request to this server, and receive transcription as response.
+
 ## Features
 
 - **Persistent Model Loading**: Keeps WhisperX model loaded in memory for faster processing
